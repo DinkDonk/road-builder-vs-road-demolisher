@@ -1,0 +1,22 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/tslint/bin/tslint --format stylish src/**/*.ts || true",
+    "build": "node node_modules/browserify/bin/cmd.js src/App.ts -p [tsify --noImplicitAny] > build/app.js",
+    "watch": "node node_modules/watchify/bin/cmd.js src/App.ts -p [tsify --noImplicitAny] -o build/app.js",
+    "start": "node node_modules/browser-sync/bin/browser-sync.js start --server 'build' --files 'build' & npm run watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "browserify": "^14.3.0",
+    "tsify": "^3.0.1",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2",
+    "watchify": "^3.9.0"
+  }
+}
