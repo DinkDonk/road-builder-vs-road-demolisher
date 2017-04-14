@@ -7,7 +7,8 @@
     "test": "node node_modules/tslint/bin/tslint --format stylish src/**/*.ts || true",
     "build": "node node_modules/browserify/bin/cmd.js src/App.ts -p [tsify --noImplicitAny] > build/app.js",
     "watch": "node node_modules/watchify/bin/cmd.js src/App.ts -p [tsify --noImplicitAny] -o build/app.js",
-    "start": "node node_modules/browser-sync/bin/browser-sync.js start --server 'build' --files 'build' & npm run watch"
+    "start": "node node_modules/browser-sync/bin/browser-sync.js start --server 'build' --files 'build' & npm run watch",
+    "deploy": "./tools/deploy.sh"
   },
   "author": "",
   "license": "ISC",
