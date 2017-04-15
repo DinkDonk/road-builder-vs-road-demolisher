@@ -22,7 +22,7 @@ class App {
 	private height:number;
 	private speed:number = 4;
 	private length:number = 1;
-	private cellSize:number = 32;
+	private cellSize:number;
 	private segments:Segment[];
 	private turningPoints:Segment[];
 	private food:Point;
@@ -32,6 +32,7 @@ class App {
 		this.context = this.canvas.getContext('2d');
 		this.width = this.canvas.width;
 		this.height = this.canvas.height;
+		this.cellSize = Math.round(this.width / 20);
 
 		if (!Number.isInteger(this.canvas.width / this.cellSize)) {
 			throw new Error('Canvas width is not divisible by cell size');
