@@ -19,11 +19,11 @@ var App = (function () {
         var _this = this;
         this.speed = 4;
         this.length = 1;
-        this.cellSize = 32;
         this.canvas = document.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
         this.width = this.canvas.width;
         this.height = this.canvas.height;
+        this.cellSize = Math.round(this.width / 20);
         if (!Number.isInteger(this.canvas.width / this.cellSize)) {
             throw new Error('Canvas width is not divisible by cell size');
         }
@@ -59,9 +59,9 @@ var App = (function () {
     }
     App.prototype.reset = function () {
         this.segments = [{
+                direction: Direction.LEFT,
                 x: this.width - this.cellSize,
-                y: 0,
-                direction: Direction.LEFT
+                y: 0
             }];
         this.turningPoints = [];
         this.dropFood();
@@ -96,7 +96,7 @@ var App = (function () {
             if (turningPoint) {
                 segment.direction = turningPoint.direction;
                 // Remove first turning point when the last segment passes over it
-                if (i == this_1.segments.length - 1) {
+                if (i === this_1.segments.length - 1) {
                     this_1.turningPoints.shift();
                 }
             }
