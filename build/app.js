@@ -34,6 +34,8 @@ var App = (function () {
         this.reset();
         // Set up controls
         document.addEventListener('keydown', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
             var previousDirection = _this.segments[0].direction;
             switch (event.key) {
                 case 'ArrowUp':
