@@ -34,6 +34,7 @@ var App = (function () {
         this.reset();
         // Set up controls
         document.addEventListener('keydown', function (event) {
+            var previousDirection = _this.segments[0].direction;
             switch (event.key) {
                 case 'ArrowUp':
                     _this.segments[0].direction = Direction.UP;
@@ -48,7 +49,9 @@ var App = (function () {
                     _this.segments[0].direction = Direction.RIGHT;
                     break;
             }
-            _this.turningPoints.push(__assign({}, _this.segments[0]));
+            if (_this.segments[0].direction !== previousDirection) {
+                _this.turningPoints.push(__assign({}, _this.segments[0]));
+            }
         });
         // Start game loop
         var interval = setInterval(function () {
