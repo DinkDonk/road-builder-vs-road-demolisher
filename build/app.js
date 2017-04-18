@@ -7,6 +7,14 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
+var Key;
+(function (Key) {
+    Key[Key["UP"] = 38] = "UP";
+    Key[Key["DOWN"] = 40] = "DOWN";
+    Key[Key["LEFT"] = 37] = "LEFT";
+    Key[Key["RIGHT"] = 39] = "RIGHT";
+})(Key || (Key = {}));
+;
 var Direction;
 (function (Direction) {
     Direction[Direction["UP"] = 0] = "UP";
@@ -37,17 +45,17 @@ var App = (function () {
             event.preventDefault();
             event.stopPropagation();
             var previousDirection = _this.segments[0].direction;
-            switch (event.key) {
-                case 'ArrowUp':
+            switch (event.keyCode) {
+                case Key.UP:
                     _this.segments[0].direction = Direction.UP;
                     break;
-                case 'ArrowDown':
+                case Key.DOWN:
                     _this.segments[0].direction = Direction.DOWN;
                     break;
-                case 'ArrowLeft':
+                case Key.LEFT:
                     _this.segments[0].direction = Direction.LEFT;
                     break;
-                case 'ArrowRight':
+                case Key.RIGHT:
                     _this.segments[0].direction = Direction.RIGHT;
                     break;
             }
